@@ -1,0 +1,49 @@
+<% layout('../layout/templateLTE') %>
+<% block('titulo1', "Ventas") -%>
+<% block('titulo2', "Nuevo") -%>
+<script src="/javascripts/angular.min.js"></script>
+<script src="/javascripts/ventas.js"></script>
+<div ng-app="super_venta" ng-controller="ventas">
+    <h1>Ventas</h1>
+    {{ejemplo}}
+    cliente
+    <input type="text" name="cliente" id="">
+    cliente seleccionado
+    Juan
+    productos:
+    <div ng-init="listaproducto =<%=
+        JSON.stringify([
+        {id:1, nombre:'Coca Cola', cant:10, precio:5.5},
+        {id:2, nombre:'Cola', cant:10, precio:5},
+        {id:3, nombre:'Coca', cant:50, precio:7},
+        {id:4, nombre:'Mani', cant:15, precio:2.5},
+        {id:5, nombre:'Papa', cant:20, precio:3},
+        {id:6, nombre:'Galletas', cant:15, precio:6}
+        ])
+    %>">
+    producto
+        <select ng-model="producto" ng-options="dato as dato.nombre for dato in listaproducto track by item.id">
+            <option></option>
+        </select>
+        precio
+        100
+        cantidad
+        <input type="number" id="">
+        <button>agregar</button>
+        <div>
+            <table>
+                <tr>
+                    <th>producto</th>
+                    <th>precio</th>
+                    <th>cantidad</th>
+                    <th>importe</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div>
+        total Bs. 100000555
+    </div>
+    <input type="submit" value="Realizar Venta">
+</div>
+
